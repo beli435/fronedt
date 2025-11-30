@@ -1,9 +1,11 @@
-<h2>Inventario del Laboratorio</h2>
+<h2>Inventario de Equipos</h2>
+
+<button (click)="irAgregar()">+ Agregar equipo</button>
 
 <table>
   <tr>
     <th>ID</th>
-    <th>Equipo</th>
+    <th>Nombre</th>
     <th>Estado</th>
     <th>Acciones</th>
   </tr>
@@ -11,11 +13,10 @@
   <tr *ngFor="let item of equipos">
     <td>{{ item.id }}</td>
     <td>{{ item.nombre }}</td>
+    <td>{{ item.estado }}</td>
     <td>
-      <span [class]="item.estado.toLowerCase()">{{ item.estado }}</span>
-    </td>
-    <td>
-      <button class="btn" routerLink="/editar/{{item.id}}">Editar</button>
+      <button (click)="irEditar(item.id)">Editar</button>
+      <button (click)="eliminar(item.id)">Eliminar</button>
     </td>
   </tr>
 </table>

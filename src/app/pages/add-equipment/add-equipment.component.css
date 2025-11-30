@@ -1,24 +1,77 @@
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 400px;
+.form-container {
+  width: 400px;
+  margin: 20px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-input, select {
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: bold;
+}
+
+label {
+  font-weight: 600;
+  margin-top: 10px;
+  display: block;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .btn {
-  padding: 8px;
-  background: #10b981;
-  color: white;
-  border-radius: 4px;
+  padding: 10px 18px;
   border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
 }
 
-.btn:hover {
-  background: #059669;
+.guardar {
+  background-color: #4caf50;
+  color: white;
+}
+
+.guardar:hover {
+  background-color: #45a049;
+}
+
+.volver {
+  background-color: #f44336;
+  color: white;
+}
+
+.volver:hover {
+  background-color: #d32f2f;
+}
+
+.error {
+  margin-top: 10px;
+  color: red;
+  font-weight: bold;
+  text-align: center;
 }

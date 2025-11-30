@@ -1,16 +1,12 @@
-<h2>Agregar Nuevo Equipo</h2>
+<h2>Agregar Equipo</h2>
 
-<form>
-  <label>Nombre:</label>
-  <input type="text">
+<label>Nombre:</label>
+<input [(ngModel)]="equipo.nombre" />
 
-  <label>Estado:</label>
-  <select>
-    <option>Funciona</option>
-    <option>No funciona</option>
-    <option>Reparación</option>
-    <option>Dañado</option>
-  </select>
+<label>Estado:</label>
+<input [(ngModel)]="equipo.estado" />
 
-  <button class="btn">Guardar</button>
-</form>
+<br />
+
+<button (click)="guardar()">Guardar</button>
+<button (click)="volver()">Volver</button>
