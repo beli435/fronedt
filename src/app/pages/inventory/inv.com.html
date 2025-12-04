@@ -1,22 +1,46 @@
-<h2>Inventario de Equipos</h2>
+<div class="container mt-4">
+  <h2 class="text-center">📦 Inventario de Equipos</h2>
 
-<button (click)="irAgregar()">+ Agregar equipo</button>
+  <input
+    class="form-control w-50 mx-auto mt-3 mb-3"
+    type="text"
+    placeholder="Buscar por nombre..."
+    [(ngModel)]="busqueda"
+  />
 
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Nombre</th>
-    <th>Estado</th>
-    <th>Acciones</th>
-  </tr>
+  <button class="btn btn-success mb-3" (click)="irAgregar()">➕ Agregar</button>
 
-  <tr *ngFor="let item of equipos">
-    <td>{{ item.id }}</td>
-    <td>{{ item.nombre }}</td>
-    <td>{{ item.estado }}</td>
-    <td>
-      <button (click)="irEditar(item.id)">Editar</button>
-      <button (click)="eliminar(item.id)">Eliminar</button>
-    </td>
-  </tr>
-</table>
+  <table class="table table-bordered table-hover text-center">
+    <thead class="table-dark">
+      <tr>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Categoría</th>
+        <th>Cantidad</th>
+        <th>Fecha</th>
+        <th>Ubicación</th>
+        <th>Responsable</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of equiposFiltrados()">
+        <td><img [src]="item.imagen" width="50" height="50" style="border-radius: 5px" /></td>
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.categoria }}</td>
+        <td>{{ item.cantidad }}</td>
+        <td>{{ item.fechaIngreso }}</td>
+        <td>{{ item.ubicacion }}</td>
+        <td>{{ item.responsable }}</td>
+        <td>{{ item.estado }}</td>
+
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="irEditar(item.id)">✏</button>
+          <button class="btn btn-danger btn-sm ms-2" (click)="eliminar(item.id)">🗑</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

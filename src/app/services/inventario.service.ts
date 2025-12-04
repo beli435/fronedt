@@ -5,6 +5,13 @@ import { Observable } from 'rxjs';
 export interface Equipo {
   id?: number;
   nombre: string;
+  cantidad: number;
+  fechaIngreso: string;
+  categoria: string;
+  descripcion: string;
+  ubicacion: string;
+  responsable: string;
+  imagen: string;
   estado: string;
 }
 
@@ -12,7 +19,7 @@ export interface Equipo {
   providedIn: 'root',
 })
 export class InventarioService {
-  private api = 'http://localhost:3000/inventario'; // ajusta si tu API usa otra ruta/puerto
+  private api = 'http://localhost:3000/inventario'; // CAMBIA ESTA URL
 
   constructor(private http: HttpClient) {}
 

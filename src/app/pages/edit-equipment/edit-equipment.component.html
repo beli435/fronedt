@@ -1,10 +1,28 @@
 <h2>Editar Equipo</h2>
 
 <label>Nombre:</label>
-<input [(ngModel)]="equipo.nombre" />
+<input [(ngModel)]="equipo.nombre" /><br />
 
-<label>Estado:</label>
-<input [(ngModel)]="equipo.estado" />
+<label>Cantidad:</label>
+<input type="number" [(ngModel)]="equipo.cantidad" /><br />
 
-<button (click)="guardar()">Guardar Cambios</button>
+<label>Fecha ingreso:</label>
+<input type="date" [(ngModel)]="equipo.fechaIngreso" /><br />
+
+<label>Categoría:</label>
+<input [(ngModel)]="equipo.categoria" /><br />
+
+<label>Descripción:</label>
+<textarea [(ngModel)]="equipo.descripcion"></textarea><br />
+
+<label>Ubicación:</label>
+<input [(ngModel)]="equipo.ubicacion" /><br />
+
+<label>Responsable:</label>
+<input [(ngModel)]="equipo.responsable" /><br />
+
+<label>Imagen (URL):</label>
+<input [(ngModel)]="equipo.imagen" /><br /><br />
+
+<button (click)="guardarCambios()">Guardar Cambios</button>
 <button (click)="volver()">Volver</button>

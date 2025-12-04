@@ -1,12 +1,62 @@
-<h2>Agregar Equipo</h2>
+<div class="container mt-4">
+  <div class="card shadow p-4">
+    <h2 class="mb-3 text-primary">Agregar Equipo</h2>
 
-<label>Nombre:</label>
-<input [(ngModel)]="equipo.nombre" />
+    <form>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Nombre:</label>
+          <input class="form-control" [(ngModel)]="equipo.nombre" name="nombre" />
+        </div>
 
-<label>Estado:</label>
-<input [(ngModel)]="equipo.estado" />
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Fecha ingreso:</label>
+          <input
+            type="date"
+            class="form-control"
+            [(ngModel)]="equipo.fechaIngreso"
+            name="fechaIngreso"
+          />
+        </div>
 
-<br />
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Cantidad:</label>
+          <input type="number" class="form-control" [(ngModel)]="equipo.cantidad" name="cantidad" />
+        </div>
 
-<button (click)="guardar()">Guardar</button>
-<button (click)="volver()">Volver</button>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Responsable:</label>
+          <input class="form-control" [(ngModel)]="equipo.responsable" name="responsable" />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Categoría:</label>
+          <input class="form-control" [(ngModel)]="equipo.categoria" name="categoria" />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Ubicación:</label>
+          <input class="form-control" [(ngModel)]="equipo.ubicacion" name="ubicacion" />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Imagen (URL API):</label>
+          <input class="form-control" [(ngModel)]="equipo.imagen" name="imagen" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Descripción:</label>
+        <textarea
+          class="form-control"
+          rows="3"
+          [(ngModel)]="equipo.descripcion"
+          name="descripcion"
+        ></textarea>
+      </div>
+
+      <button class="btn btn-success me-2" (click)="guardar()">Guardar</button>
+      <button class="btn btn-secondary" (click)="volver()">Volver</button>
+    </form>
+  </div>
+</div>
