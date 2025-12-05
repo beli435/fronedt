@@ -9,7 +9,7 @@ import { InventarioService, Equipo } from '../../services/inventario.service';
   imports: [FormsModule],
   templateUrl: './add-equipment.component.html',
 })
-export class AddEquipmentComponent {
+export class AddEquipmentComponent {   // 👈 Asegúrate de que este nombre esté así EXACTO
   equipo: Equipo = {
     nombre: '',
     cantidad: 0,
@@ -19,8 +19,9 @@ export class AddEquipmentComponent {
     ubicacion: '',
     responsable: '',
     imagen: '',
-    estado: 'Disponible', // 🔥 Se agrega aquí 👈
+    estado: 'Disponible',
   };
+
   constructor(private inventarioService: InventarioService, private router: Router) {}
 
   guardar() {

@@ -13,7 +13,7 @@ import { InventarioService, Equipo } from '../../services/inventario.service';
 })
 export class InventoryComponent implements OnInit {
   equipos: Equipo[] = [];
-  busqueda: string = ''; // 👈 YA CREADA
+  busqueda: string = '';
 
   constructor(private servicio: InventarioService, private router: Router) {}
 
@@ -21,32 +21,38 @@ export class InventoryComponent implements OnInit {
     this.cargarInventario();
   }
 
+  // 🔵 Cargar todos los equipos desde la API
   cargarInventario() {
     this.servicio.listar().subscribe({
-      next: (data) => (this.equipos = data),
-      error: (err) => console.error('Error al cargar', err),
+      next: (data: Equipo[]) => (this.equipos = data),
+      error: (err) => console.error('Error al cargar inventario', err),
     });
   }
 
+  // 🔵 Ir a agregar
   irAgregar() {
     this.router.navigate(['/agregar']);
   }
 
+  // 🔵 Ir a editar
   irEditar(id: number | undefined) {
-    // 👈 ya acepta undefined
     if (!id) return;
     this.router.navigate(['/editar', id]);
   }
 
+  // 🔵 Eliminar equipo
   eliminar(id: number | undefined) {
-    // 👈 igual aquí
     if (!id) return;
+
     if (confirm('¿Seguro que deseas eliminar?')) {
-      this.servicio.eliminar(id).subscribe(() => this.cargarInventario());
+      this.servicio.eliminar(id).subscribe({
+        next: () => this.cargarInventario(),
+        error: () => alert('Error al eliminar'),
+      });
     }
   }
 
-  // 🔍 FILTRO SIN PIPE 😎
+  // 🔍 Buscar equipos
   equiposFiltrados() {
     return this.equipos.filter((item) =>
       item.nombre.toLowerCase().includes(this.busqueda.toLowerCase())

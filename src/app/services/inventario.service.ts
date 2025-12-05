@@ -19,6 +19,9 @@ export interface Equipo {
   providedIn: 'root',
 })
 export class InventarioService {
+  editar(id: number, equipo: Equipo) {
+    throw new Error('Method not implemented.');
+  }
   private api = 'http://localhost:3000/inventario'; // CAMBIA ESTA URL
 
   constructor(private http: HttpClient) {}
