@@ -19,27 +19,25 @@ export interface Equipo {
   providedIn: 'root',
 })
 export class InventarioService {
-  editar(id: number, equipo: Equipo) {
-    throw new Error('Method not implemented.');
-  }
-  private api = 'http://localhost:3000/inventario'; // CAMBIA ESTA URL
+
+  private api = 'http://localhost:3000/api/reparaciones';
 
   constructor(private http: HttpClient) {}
 
-  listar(): Observable<Equipo[]> {
-    return this.http.get<Equipo[]>(this.api);
+  listar(): Observable<any[]> {
+    return this.http.get<any[]>(this.api);
   }
 
-  obtenerPorId(id: number): Observable<Equipo> {
-    return this.http.get<Equipo>(`${this.api}/${id}`);
+  obtenerPorId(id: number): Observable<any> {
+    return this.http.get<any>(`${this.api}/${id}`);
   }
 
-  agregar(equipo: Equipo): Observable<Equipo> {
-    return this.http.post<Equipo>(this.api, equipo);
+  agregar(data: any): Observable<any> {
+    return this.http.post<any>(this.api, data);
   }
 
-  actualizar(id: number, equipo: Equipo): Observable<Equipo> {
-    return this.http.put<Equipo>(`${this.api}/${id}`, equipo);
+  actualizar(id: number, data: any): Observable<any> {
+    return this.http.put<any>(`${this.api}/${id}`, data);
   }
 
   eliminar(id: number): Observable<any> {

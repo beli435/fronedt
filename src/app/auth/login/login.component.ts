@@ -19,18 +19,21 @@ export class LoginComponent {
   constructor(private http: HttpClient, private router: Router) {}
 
   login() {
-    const body = {
-      email: this.usuario,
-      password: this.password,
-    };
+    this.http.get<any[]>('http://localhost:3000/api/usuarios').subscribe({
+      next: (usuarios) => {
+        const encontrado = usuarios.find(
+          (u) => u.email === this.usuario && u.password === this.password
+        );
 
-    this.http.post('https://reqres.in/api/login', body).subscribe({
-      next: (resp: any) => {
-        localStorage.setItem('token', resp.token);
-        this.router.navigate(['/inventario']);
+        if (encontrado) {
+          localStorage.setItem('sesion', 'activa');
+          this.router.navigate(['/inventario']);
+        } else {
+          this.error = 'Usuario o contraseña incorrectos';
+        }
       },
       error: () => {
-        this.error = 'Credenciales incorrectas';
+        this.error = 'Error al conectar con la API';
       }
     });
   }
